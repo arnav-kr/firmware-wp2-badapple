@@ -1,0 +1,15 @@
+name: Offline checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  host:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_*.py'
+      - run: python scripts/audit_repository.py
+      - run: cmake -S tests -B build-host -DCMAKE_BUILD_TYPE=Debug
+      - run: cmake --build build-host --parallel 2
+      - run: ctest --test-dir build-host --output-on-failure

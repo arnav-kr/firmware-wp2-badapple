@@ -1,0 +1,128 @@
+{
+  "stock_sha256": "30e7978c39d8fb79b825c7ebf69b4377d214e9cc6739a52f06dbb5ff7f13b490",
+  "device_config_address": "0x101fb0c8",
+  "adc_channels": [
+    1,
+    0,
+    2,
+    7,
+    7
+  ],
+  "charge_hex": "000c19029a101e010600b80b0900e40c0c00ac0d0100e40c0908000c07000100ea10ea10ea100100a811a811a811e0010a000a0078000a002c01f401",
+  "levels_mv": [
+    3430,
+    3641,
+    3700,
+    3740,
+    3775,
+    3830,
+    3900,
+    4000,
+    4102,
+    4215,
+    4312
+  ],
+  "low_mv": [
+    3400,
+    3600,
+    0,
+    60
+  ],
+  "ntc_hex": "01070701050000000000180100ff00004f0184016419e001810149026419e0016d02dc021419e0011003ff0300ff0000",
+  "ntc_ranges": [
+    [
+      0,
+      280,
+      0,
+      255,
+      0
+    ],
+    [
+      335,
+      388,
+      100,
+      25,
+      480
+    ],
+    [
+      385,
+      585,
+      100,
+      25,
+      480
+    ],
+    [
+      621,
+      732,
+      20,
+      25,
+      480
+    ],
+    [
+      784,
+      1023,
+      0,
+      255,
+      0
+    ]
+  ],
+  "mini1_ma": [
+    0,
+    60,
+    60,
+    60,
+    0
+  ],
+  "mini2_and_3_ma": [
+    0,
+    60,
+    250,
+    250,
+    0
+  ],
+  "charge_current_ma": 300,
+  "charge_voltage_mv": 4450,
+  "panel_esd_stock_function": "0x100f8800",
+  "panel_esd_period_ms": 3000,
+  "audio": {
+    "stock_amp_function": "0x1010641c",
+    "control_gpio": "GPIOA.21",
+    "enable_pulses_us": [
+      1,
+      1
+    ],
+    "enable_settle_ms": 20,
+    "disable_settle_ms": 160,
+    "i2c_aw87390": false,
+    "playback_verified": false,
+    "delay_api": "soc_udelay(1), verified by stock RAM-code relocation"
+  },
+  "panel_power_gpio": "GPIOA.4",
+  "touch": {
+    "i2c": "I2C_0",
+    "address": 21,
+    "scl": 24,
+    "sda": 25,
+    "power": 5,
+    "reset": 26,
+    "irq": 27,
+    "evidence": [
+      "stock 0x10115f20",
+      "stock 0x10115ed4",
+      "stock 0x10115fa0",
+      "stock 0x10116308",
+      "stock board pinmux table 0x101f68cc"
+    ]
+  },
+  "mt3511": {
+    "address": 117,
+    "i2c": "I2C_2",
+    "irq_gpio": "GPIOB.26",
+    "init_ram": "0x38002a9d",
+    "init_rom": "0x10258334",
+    "pairs": 42,
+    "init_sha256": "c72e72491e60fa2ef14b17730c27e5cc2ceb50fe68eea61b943ab88773d7e158",
+    "default_resolution": 320,
+    "delta_threshold": 20
+  }
+}

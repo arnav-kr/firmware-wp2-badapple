@@ -1,0 +1,105 @@
+{
+  "source_baseline": "firmware-port control13",
+  "files": {
+    "app/src/ui/player_view.c": {
+      "original": "app/src/ota/ota_app_view.c",
+      "sha256": "102c4cec55536f61732718916c420c4f7cda67338b214be49aa454d67023edfc"
+    },
+    "app/src/video/player.h": {
+      "original": "app/src/ota/badapple_player.h",
+      "sha256": "3b98f4a49fcb87b4cb4e417f08f6a000d87115b678fb8b8ba6b7c32ed014997b"
+    },
+    "app/src/video/gpu_metrics.c": {
+      "original": "app/src/ota/badapple_gpu.c",
+      "sha256": "7c63d7d79163b87e98b97bbbfeafb6e2aa0ec3db2a4f1b84bd45cfb49f777e8e"
+    },
+    "app/src/audio/codec.c": {
+      "original": "app/src/ota/badapple_codec.c",
+      "sha256": "7e876cb51d24d6b057accbe73ffb7a08b108f901ecb2dbb3806ce23443d9e43a"
+    },
+    "app/src/audio/badapple_codec.h": {
+      "original": "app/src/ota/badapple_codec.h",
+      "sha256": "39b23d4c70fcd603612d8c147882c3b84311e1341554cc62f9012dd81098c434"
+    },
+    "app/src/audio/music.c": {
+      "original": "app/src/ota/badapple_music.c",
+      "sha256": "fc728ee72d997efe5d996a4635aad0569980082f129226f86b66669f230fcba4"
+    },
+    "app/src/audio/badapple_music.h": {
+      "original": "app/src/ota/badapple_music.h",
+      "sha256": "d2a645429cccd490c0b75d83fd41928d064631767030fbd61fbe7d8186f8dcdf"
+    },
+    "app/src/audio/speaker.c": {
+      "original": "app/src/ota/pro2_audio.c",
+      "sha256": "5d5ee97dc36851b2ef94fdb8e4e54891ab04240467334c63bb135f052589ad33"
+    },
+    "app/src/audio/pro2_tone_pcm.h": {
+      "original": "app/src/ota/pro2_tone_pcm.h",
+      "sha256": "c47a1d3f57971237b6e6f25188a2937eb3c27c674e8840c492be8b7526bd2836"
+    },
+    "app/src/input/crown.c": {
+      "original": "app/src/ota/pro2_knob.c",
+      "sha256": "a88c3391c9f071b8e46b70430aaab3bf6e30d21dce787d7555b7a1738a5b6744"
+    },
+    "app/src/input/media_controls.h": {
+      "original": "app/src/ota/media_controls.h",
+      "sha256": "984684cc67b00e680eb37580b78545e14617c684bf22903ecd006f81cd8ecb56"
+    },
+    "app/src/input/crown_debounce.h": {
+      "original": "app/src/ota/crown_debounce.h",
+      "sha256": "efb7f37c426a118a3cec1271cc0aa3bb1fc66424184bb4ec7f113e408202ccd8"
+    },
+    "drivers/audio/audio_track.c": {
+      "original": "hardware13/audio_track_probe.c",
+      "sha256": "0df32cc06fb39e58a20414a086350fa5c4682ef6e93e49fecee23e372912940b"
+    },
+    "drivers/audio/dac.c": {
+      "original": "hardware13/phy_audio_dac_stockfir.c",
+      "sha256": "d3d46124497877d64261283f48391f70ba3dabac7cbf2c31e72d8b9c4f14b5bd"
+    },
+    "drivers/i2c/i2c.c": {
+      "original": "hardware13/i2c_error_probe.c",
+      "sha256": "4f42363f3edcda0d17107fd57a6d8634addf8bd4becd5723a438de501e2d8414"
+    },
+    "drivers/input/touch.c": {
+      "original": "hardware13/cst820_tpkey_acts.c",
+      "sha256": "456eeacb88bdc35e42c518fc784feca6cfe150f25513140c429798452d251ebd"
+    },
+    "drivers/display/panel.c": {
+      "original": "hardware13/panel_co5300_jx07003.c",
+      "sha256": "a6e07f2140f29c26cc885842eaac002d3c9450dda71f8345403a6f1a2daf7fb5"
+    },
+    "drivers/display/lifecycle.c": {
+      "original": "hardware13/panel_device_stockseq.c",
+      "sha256": "680f62ca4e00de3d3d82c9d4d2c291a0c52dddced012d62e8c6d0c53104a60a4"
+    },
+    "drivers/display/panel_stock_sequence.h": {
+      "original": "hardware13/panel_stock_sequence.h",
+      "sha256": "2266a380923c70072390dfd34bddebbc450d6092a4f610ca9ba53aacfba32830"
+    },
+    "drivers/display/panel_stock_driver.h": {
+      "original": "hardware13/panel_stock_driver.h",
+      "sha256": "3da4ee65c5252f9bc98a088c032a97a7360a66e3cdf6018f3c5f56abe3303d22"
+    },
+    "board/wp2/board.c": {
+      "original": "hardware13/board_pro2.c",
+      "sha256": "661f48e8b2a61aeb8585daf064ca9d98c4bbad05687081078a805dca7ae0546d"
+    },
+    "app/src/input/mt3511_init.h": {
+      "original": "hardware13/mt3511_init.h",
+      "sha256": "8f89c09c1d5f0f34fe1a657312c8bf07c0cbd9dd7e18f376fb85a69f96026e90"
+    },
+    "board/wp2/stock-profile.json": {
+      "original": "hardware13/stock-profile.json",
+      "sha256": "cec9ba2f3aa2658d70c64363cb590c535bc8fb9c8b79028b1f655b37047288ce"
+    },
+    "board/wp2/include/board.h": {
+      "original": "hardware13/include/board.h",
+      "sha256": "cd9ae75193d7d136d05b20c995d7708eaf3fe61d4d2d590225b59b219cd29cda"
+    },
+    "board/wp2/include/board_cfg.h": {
+      "original": "hardware13/include/board_cfg.h",
+      "sha256": "b53422f4febf93aa2bc3692114be1c6641df2e126f7bdebe4b1b6e929f786025"
+    }
+  }
+}

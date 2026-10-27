@@ -1,0 +1,26 @@
+{
+  "size": 3851336,
+  "sha256": "6ba87466b09bf27110ebc7552a673d523333e3051cb836924cd968b7523b6b04",
+  "app_sha256": "505b344aa44085bff1c2265e0cafee51bda44a74d943f781dfbc1bbf2608660b",
+  "sdfs_sha256": "16bec831210ff887cfb9bab5397cd16c104524dfc8cd88b16e7721a52e2e34be",
+  "rollback_sha256": "2976498fdc7d176dd18dc058551ac95a8e2a9f23d8c48010dbc0e0de9913109d",
+  "outer_files": [
+    "ota.xml",
+    "TEMP.bin"
+  ],
+  "agps_trailer_sha256": "648b05af22f7f17cb54c314a4b7a351e947e086f35878366afb021f86b8885a4",
+  "agps_trailer_bytes": 1242696,
+  "inner_files": [
+    "ota.xml",
+    "app.bin",
+    "sdfs.bin"
+  ],
+  "updated_ids": [
+    4,
+    5
+  ],
+  "bootloader_updated": false,
+  "recovery_updated": false,
+  "resources_updated": false,
+  "status": "Historical v13 reference: transfer/commit succeeded; boot and playback verification pending."
+}
