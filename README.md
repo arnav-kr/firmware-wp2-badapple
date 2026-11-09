@@ -28,6 +28,8 @@ watch's existing bootloader and recovery.
 This is an unofficial firmware demo. Start with the virtual watch if you want
 to try it without changing a physical device.
 
+[Watch Bad Apple running on a real Watch Pro 2](https://youtu.be/npPfNpdD0O8).
+
 ## Try it in the emulator
 
 Open the [Watch Pro 2 emulator](https://cmf.arnv.dev/emulator/watch-pro-2/),
