@@ -20,13 +20,25 @@
 
 ---
 
-An independent custom application built with the Actions ATS3089C SDK and Zephyr.
-It replaces the stock application with a resource-independent LVGL player; it is
-**not a patched stock application binary**. Vendor libraries, a small SDFS image,
-and the existing bootloader/recovery remain dependencies.
+This project runs Bad Apple on the CMF Watch Pro 2 (JX402). It builds a new
+Zephyr application against the Actions ATS3089C SDK. The player has its own UI
+and media. It still uses vendor libraries, an SDFS support image and the
+watch's existing bootloader and recovery.
 
-Unofficial project, unaffiliated with Nothing / CMF. Target: JX402 / Watch Pro 2.
-This is an experimental player and hardware port, not a complete daily-use watch OS.
+This is an unofficial firmware demo. Start with the virtual watch if you want
+to try it without changing a physical device.
+
+## Try it in the emulator
+
+Open the [Watch Pro 2 emulator](https://cmf.arnv.dev/emulator/watch-pro-2/),
+choose **Bad Apple** under **Boot preset** and start the watch. If the emulator
+asks for a file, select `wp2-badapple-ota.bin` from your build or the
+[v14 preview release](https://github.com/arnav-kr/firmware-wp2-badapple/releases/tag/v14).
+The emulator extracts the application and its resources from the package.
+No physical watch is involved.
+
+Tap the display to switch between normal and fullscreen. Press the crown to
+pause or resume, hold it to restart playback, and rotate it to change volume.
 
 ## Features and status
 
@@ -41,21 +53,18 @@ This is an experimental player and hardware port, not a complete daily-use watch
 | OTA | SDK Actions OTA and BLE diagnostic shell retained |
 | Hardware | Custom panel, touch, crown, charger/battery and DAC adaptations |
 
-Earlier v10–v12 builds had user-confirmed crown/touch operation and audible sound;
-v12 fullscreen audio was smooth, but it later developed a persistent black display.
-The v13 baseline corrects differences in panel reset and shutdown sequencing.
-Its OTA transfer/commit completed. The source now builds `badapple14` with the
-55 Hz panel timing and horizontal offset used by the Watch Pro 2. Hardware
-playback and display recovery still need validation.
-
-See [validation](docs/validation.md) for offline checks and remaining hardware work.
+The current build, **v14**, passed package validation and booted to the player
+in QEMU. It has not been flashed to a physical watch. Earlier builds played
+audio and responded to the crown and touch on hardware, but v12 eventually
+lost the display. See [validation](docs/validation.md) for what was tested and
+what still needs a hardware check.
 
 ## Build
 
-You need the matching Actions SDK, its ARM GNU toolchain, CMake/Ninja, and an SDK
-Python environment. This repository does not bundle the SDK, vendor binaries,
-stock firmware or copyrighted media. Supply the inputs described in
-[vendor/README.md](vendor/README.md) and [assets/README.md](assets/README.md).
+Follow the [build guide](docs/build.md) to set up the Actions SDK, ARM compiler,
+CMake, Ninja and Python. Prepare the [vendor files](vendor/README.md) and
+[media inputs](assets/README.md) before running these commands. The Git source
+tree does not include those inputs.
 
 ```powershell
 python scripts/media.py embed
@@ -69,9 +78,8 @@ python scripts/media.py embed
 python scripts/verify.py dist/wp2-badapple-ota.bin
 ```
 
-The scripts accept explicit tool paths and leave the SDK unchanged. Build output
-goes to `build/`; generated media to `generated/`; verified OTA output to `dist/`.
-The detailed [build guide](docs/build.md) explains how to prepare a new checkout.
+The build leaves the SDK unchanged and writes the firmware package to
+`dist/wp2-badapple-ota.bin`.
 
 ## Layout
 
@@ -113,12 +121,10 @@ or media. Full video/audio tests also need generated assets and private media.
 
 ## Flashing
 
-Build and verification commands never connect to or flash a watch. Delivery is a
-separate, explicitly chosen operation through the companion tooling; see
-[OTA and recovery](docs/ota.md). Only application and SDFS partitions are packaged.
-Bootloader, recovery, partition layout and large stock resource partitions are
-preserved. Crown-plus-charger recovery is not proven independent of every app
-failure, and no universal recovery guarantee exists.
+Build and verification commands never connect to a watch. If you choose to
+install the firmware on hardware, read [OTA and recovery](docs/ota.md) first.
+The package updates the application and its SDFS support partition. Recovery
+with crown and charger has not been proven for every app failure.
 
 ## Attribution and licensing
 
