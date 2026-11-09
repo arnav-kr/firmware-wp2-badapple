@@ -1,6 +1,8 @@
 #ifndef PRO2_PANEL_STOCK_DRIVER_H
 #define PRO2_PANEL_STOCK_DRIVER_H
 #include <stdint.h>
+struct lcd_panel_config;
+extern const struct lcd_panel_config lcd_panel_co5300_jx07003_config;
 struct pro2_panel_diag {
  uint32_t power_on,power_off,te_resets,esd_resets,last_reason,starts,completes,errors,last_start_ms,last_complete_ms;
  uint32_t pm_state,sleeping,busy,brightness,pending,reset_raw,power_raw;

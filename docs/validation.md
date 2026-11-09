@@ -1,5 +1,22 @@
 # Migration validation
 
+## Bad Apple v14
+
+The Bad Apple-only source built from a fresh checkout with the SDK revision
+and local inputs listed in the build guide. All five host tests and eight
+Python tests passed. The repository audit found no local inputs or credentials
+in the files to be committed.
+
+The package passed CRC, ACTH checksum, partition and AGPS checks. The strict
+QEMU preflight booted its exact app from virtual NOR and observed the rendered
+player. This checks application startup. Physical flashing and sustained
+playback remain unverified for v14.
+
+The checked package is 3,851,336 bytes. Its SHA-256 is
+`563b993656f8ebfc21d4e79e9eb7eb3c8b6ce483fcfbdb10198cffecfd8c4a88`.
+
+## Earlier source migration
+
 The organized project starts from the control13 source baseline, keeps hardware
 behavior/configuration, and moves code into named modules. The video decoder
 now has a normal `.c` implementation and a public header/reset function, rather

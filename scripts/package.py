@@ -34,14 +34,14 @@ def main():
             path.unlink()
     raw = args.build_dir / "zephyr/zephyr.bin"
     shutil.copyfile(raw, inner_dir / "app.bin")
-    (inner_dir / "fw_version.bin").write_bytes(b"badapple13_261025\0")
+    (inner_dir / "fw_version.bin").write_bytes(b"badapple14_261105\0")
     pack.boot_post_build(str(inner_dir / "app.bin"))
     app = (inner_dir / "app.bin").read_bytes()
     size = struct.unpack_from("<I", app, 24)[0]
     require(app[512:512+size] == raw.read_bytes()[512:512+size], "Packager changed executable payload")
     shutil.copyfile(args.vendor_dir / "sdfs.bin", inner_dir / "sdfs.bin")
     version = {"version_code": "0x10000", "version_res": "0x10000",
-               "version_name": "1.00_badapple13", "board_name": "jx402_01_3089c"}
+               "version_name": "1.00_badapple14", "board_name": "jx402_01_3089c"}
     builder.LZMA_OTA_BIN = 0
     builder.LZMA_TEMP_BIN = 0
     fw = builder.ota_fw()
@@ -78,7 +78,7 @@ def main():
     require(sha(trailer) == AGPS_SHA256, "Wrong stock AGPS trailer")
     image_path.write_bytes(image_path.read_bytes() + trailer)
     report = verify(image_path)
-    report["baseline"] = "control13; reorganized source build, not a new on-watch validation"
+    report["variant"] = "badapple14"
     (output / "manifest.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 

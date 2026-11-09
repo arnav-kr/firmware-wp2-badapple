@@ -265,7 +265,7 @@ static int bringup_layout(view_data_t *view_data)
     lv_obj_add_flag(root, LV_OBJ_FLAG_CLICKABLE);
     lv_obj_add_event_cb(root, touch_event, LV_EVENT_ALL, NULL);
     title = lv_label_create(root);
-    lv_label_set_text(title, "BAD APPLE v13");
+    lv_label_set_text(title, "BAD APPLE v14");
     lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 28);
     status_label = lv_label_create(root);
     lv_obj_set_style_text_align(status_label, LV_TEXT_ALIGN_CENTER, 0);

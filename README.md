@@ -44,8 +44,9 @@ This is an experimental player and hardware port, not a complete daily-use watch
 Earlier v10–v12 builds had user-confirmed crown/touch operation and audible sound;
 v12 fullscreen audio was smooth, but it later developed a persistent black display.
 The v13 baseline corrects differences in panel reset and shutdown sequencing.
-Its OTA transfer/commit completed, but v13 boot and sustained playback verification
-are still pending. This reorganized build has not been flashed.
+Its OTA transfer/commit completed. The source now builds `badapple14` with the
+55 Hz panel timing and horizontal offset used by the Watch Pro 2. Hardware
+playback and display recovery still need validation.
 
 See [validation](docs/validation.md) for offline checks and remaining hardware work.
 

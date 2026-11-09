@@ -8,10 +8,10 @@
 - SDK Python environment with its Zephyr dependencies (including pyelftools).
 - For media encoding: ffmpeg with libmp3lame and Pillow (`pip install -r requirements.txt`).
 
-The exact upstream SDK revision has not been pinned in this repository. The
-baseline depends on that SDK's internal target names and APIs, so an arbitrary
-new Zephyr checkout is not a substitute. The working SDK remains an external
-dependency; this repository is not a standalone SDK distribution.
+The build was checked with [Actions SDK revision `26f51e5`](https://github.com/lvgl/lv_port_actions_technology/tree/26f51e584940d5b141cd1d09d2629d69b595f579/action_technology_sdk)
+and Arm GNU 9.3.1. Point `-SdkRoot` at the `action_technology_sdk` directory in
+that checkout. The script prepares the board configuration, compiler cache and
+FreeType archive under `build/`.
 
 ## Prepare local inputs
 
@@ -54,9 +54,11 @@ python scripts/verify.py dist/wp2-badapple-ota.bin --report dist/verification.js
 ```
 
 The resulting manifest contains SHA-256 identities and offline verification
-results. `hardware_tested` remains false. The historical firmware ID is retained
-as `badapple13` so this organizational refactor does not pretend to introduce a
-new tested hardware revision. Newly built images have their own hashes.
+results for `badapple14`. `hardware_tested` remains false.
+
+For a local ATS3089C QEMU workspace with `probe.py` and prepared NAND, pass
+`-Preflight -EmulatorRoot PATH` to verify the package and test its application
+boot after packaging. This checks the virtual handoff and rendered display.
 
 ## Capacity
 

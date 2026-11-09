@@ -5,7 +5,7 @@
  */
 
 #include <sys/byteorder.h>
-#include "panel_co5300_jx07003.h"
+#include "panel_icna3310b.h" /* Shared DCS and QSPI command encodings. */
 #include "panel_device.h"
 #include "panel_stock_sequence.h"
 #include "panel_stock_driver.h"

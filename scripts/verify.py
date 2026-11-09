@@ -81,8 +81,8 @@ def sum32(data):
     return sum(struct.unpack(f"<{len(data)//4}I", data)) & 0xffffffff
 
 
-def verify(path):
-    image = Path(path).read_bytes()
+def verify_package(image):
+    """Return the verification report and the exact verified inner payloads."""
     outer, outer_nodes, end = aota(image)
     require(set(outer) == {"ota.xml", "TEMP.bin"}, "Unexpected outer files")
     require(int(outer_nodes["TEMP.bin"].findtext("file_id"), 0) == 254, "Unexpected TEMP partition")
@@ -107,13 +107,19 @@ def verify(path):
     require(sum32(app[:512]) == 0xffffffff, "ACTH header checksum mismatch")
     require((sum32(app[512:512+size])+struct.unpack_from("<I", app, 28)[0]) & 0xffffffff == 0xffffffff,
             "ACTH data checksum mismatch")
-    return {"sha256": sha(image), "image_bytes": len(image), "app_sha256": sha(app),
+    report = {"sha256": sha(image), "image_bytes": len(image), "app_sha256": sha(app),
             "app_bytes": len(app), "sdfs_sha256": sha(files["sdfs.bin"]),
             "sdfs_bytes": len(files["sdfs.bin"]), "temp_bytes": len(packed),
             "agps_trailer_sha256": sha(trailer), "updated_ids": [4, 5],
             "checks": ["AOTA header/data/file/XML CRCs", "entry bounds and overlap",
                        "LZMA chunk bounds", "ACTH checksums", "measured partition limits", "SDFS/AGPS identities"],
             "bootloader_updated": False, "recovery_updated": False, "hardware_tested": False}
+    return report, files
+
+
+def verify(path):
+    report, _ = verify_package(Path(path).read_bytes())
+    return report
 
 
 def main():
