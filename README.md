@@ -33,7 +33,7 @@ to try it without changing a physical device.
 Open the [Watch Pro 2 emulator](https://cmf.arnv.dev/emulator/watch-pro-2/),
 choose **Bad Apple** under **Boot preset** and start the watch. If the emulator
 asks for a file, select `wp2-badapple-ota.bin` from your build or the
-[v14 preview release](https://github.com/arnav-kr/firmware-wp2-badapple/releases/tag/v14).
+[latest release](https://github.com/arnav-kr/firmware-wp2-badapple/releases/latest).
 The emulator extracts the application and its resources from the package.
 No physical watch is involved.
 
@@ -53,11 +53,9 @@ pause or resume, hold it to restart playback, and rotate it to change volume.
 | OTA | SDK Actions OTA and BLE diagnostic shell retained |
 | Hardware | Custom panel, touch, crown, charger/battery and DAC adaptations |
 
-The current build, **v14**, passed package validation and booted to the player
-in QEMU. It has not been flashed to a physical watch. Earlier builds played
-audio and responded to the crown and touch on hardware, but v12 eventually
-lost the display. See [validation](docs/validation.md) for what was tested and
-what still needs a hardware check.
+The release passed package validation and booted to the player in QEMU. It
+has not been flashed to a physical watch. See [validation](docs/validation.md)
+for what was tested and what still needs a hardware check.
 
 ## Build
 
